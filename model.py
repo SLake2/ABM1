@@ -13,6 +13,13 @@ print("x0", x0)
 y0 = 0
 print("y0", y0)
 
+# ABM2: adding lists for agents
+
+# Create a list for agents
+agents = []
+# Add coordinates to list - append to the list agents 
+agents.append([x0, y0])
+
 # Change x0 and y0 randomly
 import random
 
@@ -21,63 +28,28 @@ print("rn", rn)
 
 # if statement
 if rn < 0.5:
-    x0 = x0 + 1
+    agents[0][0] = agents[0][0] + 1
 else:
-    x0 = x0 - 1
+    agents[0][0] = agents[0][0] - 1
 
-print("x0", x0)
+print("x0", agents[0][0])
 
 # Set the pseudo-random seed for reproducibility
 random.seed(0)
 
 # Same for Y values - try > instead of <
 if rn < 0.5:
-    y0 = y0 + 1
+    agents[0][1] = agents[0][1] + 1
 else:
-    y0 = y0 - 1
+    agents[0][1] = agents[0][1] - 1
     
-print("y0", y0)
+print("y0", agents[0][1])
 
 # note: Can change the random seed to another variable if wanted e.g.random.seed(1)
 print()
-print("New Random Seed trials")
-random.seed(1)
-if rn < 0.5:
-    x0 = x0 + 1
-else:
-    x0 = x0 - 1
 
-print("rs1 x0", x0)
 
-if rn < 0.5:
-    y0 = y0 + 1
-else:
-    y0 = y0 - 1
-    
-print("rs1 y0", y0)
-
-# With different number than 0 or 1
-
-random.seed(49)
-if rn < 0.5:
-    x0 = x0 + 1
-else:
-    x0 = x0 - 1
-
-print("rs49 x0", x0)
-
-if rn < 0.5:
-    y0 = y0 + 1
-else:
-    y0 = y0 - 1
-    
-print("rs49 y0", y0)
-
-# note: also trialled with opposite sign [> instead of oringinal <]
-
-# Seperate the numbers so less cluttered using print function
-
-print()
+# note: deleted extra trials for abm2
 
 # Do the same for x1 and y1 variables
 x1 = 1
@@ -86,6 +58,7 @@ print("x1", x1)
 y1 = 1
 print("y1", y1)
 
+
 import random
 
 rn = random.random()
@@ -93,23 +66,23 @@ rn = random.random()
 print("rn2", rn)
 
 if rn > 0.5:
-    x1 = x1 -1
-else:
     x1 = x1 + 1
+else:
+    x1 - 1
 
 print("x1", x1)
 
 if rn < 0.5:
-    y1 = y1 - 1
+   y1 = y1 + 1
 else:
-    y1 = y1 + 1
+    y1 = y1 - 1
 
 print("y1", y1)
 
 # New space for next part of ABM
 print()
 
-# No. 4
+# ABM 1 No. 4
 # Calculate the Euclidean distance between (x0, y0) and (x1, y1)
 # A sqr + B sqr = C sqr
 
@@ -120,14 +93,13 @@ y0 = 0
 x1 = 3
 y1 = 4
 
-# See as coordinates using square brakets
-print([x0, y0]) 
-print([x1, y1])
-
 print() # new space for visulaisation
- 
+
+# ABM 2 - add x1 and y1 to agents list and change code to recognise this
+agents.append([x1, y1])
+
+
 # Calculate the difference in the x coordinates. 
-# Can use abs(x0-x1) for x values and same but replace for y
 # Could just do x0 - x1 or y0 - y1
 
 print("difference x", x0 - x1)
@@ -168,5 +140,24 @@ print("Distance =", differencesq**0.5)
 #only if using the second options in all these examples
 
 # Or could import math and do the square root this way
+# print("The difference in distance between the coordinates [0,0] and [3,4] is 5.")
 
-print("The difference in distance between the coordinates [0,0] and [3,4] is 5.")
+# ABM 2 - Plotting
+
+# Plotting the agents
+import matplotlib.pyplot as plt
+import operator
+
+# Make a scatter plot showing the coordinates
+plt.scatter(agents[0][0], agents[0][1], color='black')
+plt.scatter(agents[1][0], agents[1][1], color='black')
+plt.show()
+
+# Get the coordinates with the largest x-coordinate
+print(max(agents, key=operator.itemgetter(0)))
+
+# Plot point with largest x-coordinate in red
+# Manually and works
+
+plt.scatter(agents[0][0], agents[0][1], color='black')
+plt.scatter(agents[1][0], agents[1][1], color='red')
