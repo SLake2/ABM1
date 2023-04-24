@@ -31,14 +31,49 @@ print("x0", x0)
 random.seed(0)
 
 # Same for Y values - try > instead of <
-if rn > 0.5:
+if rn < 0.5:
     y0 = y0 + 1
 else:
     y0 = y0 - 1
     
 print("y0", y0)
 
-# note: Can change the random seed to another variable if wanted
+# note: Can change the random seed to another variable if wanted e.g.random.seed(1)
+
+random.seed(1)
+if rn < 0.5:
+    x0 = x0 + 1
+else:
+    x0 = x0 - 1
+
+print("rs1 x0", x0)
+
+if rn < 0.5:
+    y0 = y0 + 1
+else:
+    y0 = y0 - 1
+    
+print("rs1 y0", y0)
+
+# With different number than 0 or 1
+
+random.seed(49)
+if rn < 0.5:
+    x0 = x0 + 1
+else:
+    x0 = x0 - 1
+
+print("rs49 x0", x0)
+
+if rn < 0.5:
+    y0 = y0 + 1
+else:
+    y0 = y0 - 1
+    
+print("rs49 y0", y0)
+
+# note: also trialled with opposite sign [> instead of oringinal <]
+
 # Seperate the numbers so less cluttered using print function
 
 print()
@@ -88,23 +123,46 @@ y1 = 4
 print([x0, y0]) 
 print([x1, y1])
 
+print() # new space for visulaisation
+ 
 # Calculate the difference in the x coordinates. 
-#Use abs(x0-x1) for x values and same but replace for y
+# Can use abs(x0-x1) for x values and same but replace for y
+# Could just do x0 - x1 / y0 - y1
+# abs does the calculation but gets the absolute value which isn't necessary for this but noted
 
 print("difference x", abs(x0-x1))
+# or
+# difx = x0 - x1
+# print("diff x", difx)
 
 # Calculate the difference in the y coordinates
 
 print("difference y", abs(y0-y1))
+# or
+# dify = y0 - y1
+# print("diff y", dify)
 
 # Square the differences and add the squares using ** 2
+# Could also do manually timesed by each other
 
 print("Square x", 3**2)
 print("Square y", 4**2)
+#or
+# print("Square x", difx * difx)
+# print("Square y", dify * dify)
 
-print("Squares added =", 9+16)
+# Could square by doing difference x * difference x
+
+difference = (3**2) + (4**2)
+print("Squares added =", difference)
+# or
+# differencesq = (difx * difx) + (dify *dify)
+# print(differencesq)
+
 
 # Calculate the square root (using ** 0.5)
 print("Square Root =", 25**0.5)
+
+# Or could import math and do the square root this way
 
 print("The difference between the coordinates [0,0] and [3,4] is 5.")
