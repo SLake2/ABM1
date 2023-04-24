@@ -39,7 +39,8 @@ else:
 print("y0", y0)
 
 # note: Can change the random seed to another variable if wanted e.g.random.seed(1)
-
+print()
+print("New Random Seed trials")
 random.seed(1)
 if rn < 0.5:
     x0 = x0 + 1
@@ -127,42 +128,43 @@ print() # new space for visulaisation
  
 # Calculate the difference in the x coordinates. 
 # Can use abs(x0-x1) for x values and same but replace for y
-# Could just do x0 - x1 / y0 - y1
-# abs does the calculation but gets the absolute value which isn't necessary for this but noted
+# Could just do x0 - x1 or y0 - y1
 
-print("difference x", abs(x0-x1))
+print("difference x", x0 - x1)
 # or
-# difx = x0 - x1
-# print("diff x", difx)
+difx = x0 - x1
+print("diff x =", difx)
 
 # Calculate the difference in the y coordinates
 
-print("difference y", abs(y0-y1))
+print("difference y", y0 - y1)
 # or
-# dify = y0 - y1
-# print("diff y", dify)
+dify = y0 - y1
+print("diff y", dify)
 
+print()
 # Square the differences and add the squares using ** 2
 # Could also do manually timesed by each other
 
 print("Square x", 3**2)
 print("Square y", 4**2)
 #or
-# print("Square x", difx * difx)
-# print("Square y", dify * dify)
+print("Square x", difx * difx)
+print("Square y", dify * dify)
 
+print()
 # Could square by doing difference x * difference x
 
 difference = (3**2) + (4**2)
 print("Squares added =", difference)
 # or
-# differencesq = (difx * difx) + (dify *dify)
-# print(differencesq)
+differencesq = (difx * difx) + (dify *dify)
+print("Difference squared =", differencesq)
 
-
+print()
 # Calculate the square root (using ** 0.5)
 print("Square Root =", 25**0.5)
-# or print("Distance =", differencesq)
+print("Distance =", differencesq**0.5)
 #only if using the second options in all these examples
 
 # Or could import math and do the square root this way
