@@ -162,7 +162,9 @@ print("Squares added =", difference)
 
 # Calculate the square root (using ** 0.5)
 print("Square Root =", 25**0.5)
+# or print("Distance =", differencesq)
+#only if using the second options in all these examples
 
 # Or could import math and do the square root this way
 
-print("The difference between the coordinates [0,0] and [3,4] is 5.")
+print("The difference in distance between the coordinates [0,0] and [3,4] is 5.")
