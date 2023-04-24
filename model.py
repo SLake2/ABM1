@@ -16,38 +16,68 @@ print("y0", y0)
 # ABM2: adding lists for agents
 
 # Create a list for agents
-agents = []
+#agents = []
 # Add coordinates to list - append to the list agents 
-agents.append([x0, y0])
+#agents.append([x0, y0])
 
 # Change x0 and y0 randomly
 import random
 
-rn = random.random()
-print("rn", rn)
+#rn = random.random()
+#print("rn", rn)
 
 # if statement
-if rn < 0.5:
-    agents[0][0] = agents[0][0] + 1
-else:
-    agents[0][0] = agents[0][0] - 1
+#if rn < 0.5:
+#    agents[0][0] = agents[0][0] + 1
+#else:
+#    agents[0][0] = agents[0][0] - 1
 
-print("x0", agents[0][0])
+#print("x0", agents[0][0])
 
 # Set the pseudo-random seed for reproducibility
 random.seed(0)
 
-# Same for Y values - try > instead of <
-if rn < 0.5:
-    agents[0][1] = agents[0][1] + 1
-else:
-    agents[0][1] = agents[0][1] - 1
+# Changge from agent list from the x0,y0 to ranges
+
+# Number of agents is 10
+n_agents = 10
+
+# Initialise these agents
+agents = []
+for i in range(n_agents):
+    agents.append([random.randint(0, 99), random.randint(0, 99)])
+print(agents)
     
-print("y0", agents[0][1])
+# Move agents
+for i in range(n_agents):
+    # Change agents[i] coordinates randomly
+    # x-coordinate
+    rn = random.random()
+    #print("rn", rn)
+    if rn < 0.5:
+        agents[i][0] = agents[i][0] + 1
+    else:
+        agents[i][0] = agents[i][0] - 1
+    # y-coordinate
+    rn = random.random()
+    #print("rn", rn)
+    if rn < 0.5:
+        agents[i][1] = agents[i][1] + 1
+    else:
+        agents[i][1] = agents[i][1] - 1
+print(agents)
+
+
+# Same for Y values - try > instead of <
+#if rn < 0.5:
+#    agents[0][1] = agents[0][1] + 1
+#else:
+#    agents[0][1] = agents[0][1] - 1
+    
+#print("y0", agents[0][1])
 
 # note: Can change the random seed to another variable if wanted e.g.random.seed(1)
 print()
-
 
 # note: deleted extra trials for abm2
 
@@ -96,7 +126,7 @@ y1 = 4
 print() # new space for visulaisation
 
 # ABM 2 - add x1 and y1 to agents list and change code to recognise this
-agents.append([x1, y1])
+#agents.append([x1, y1])
 
 
 # Calculate the difference in the x coordinates. 
@@ -149,15 +179,35 @@ import matplotlib.pyplot as plt
 import operator
 
 # Make a scatter plot showing the coordinates
-plt.scatter(agents[0][0], agents[0][1], color='black')
-plt.scatter(agents[1][0], agents[1][1], color='black')
-plt.show()
+#plt.scatter(agents[0][0], agents[0][1], color='black')
+#plt.scatter(agents[1][0], agents[1][1], color='black')
+#plt.show()
 
 # Get the coordinates with the largest x-coordinate
-print(max(agents, key=operator.itemgetter(0)))
+#print(max(agents, key=operator.itemgetter(0)))
 
 # Plot point with largest x-coordinate in red
-# Manually and works
 
-plt.scatter(agents[0][0], agents[0][1], color='black')
-plt.scatter(agents[1][0], agents[1][1], color='red')
+# Manually change what you know has the largest x coordinate from the print above
+#plt.scatter(agents[0][0], agents[0][1], color='black')
+#plt.scatter(agents[1][0], agents[1][1], color='red')
+
+# Doing it with code/automatically trials
+#plt.scatter(agents[0][0], agents[0][1], color='black')
+
+# Plotting ranged agents
+for i in range(n_agents):
+    plt.scatter(agents[i][0], agents[i][1], color='black')
+
+#lx = largest x value, use the code provided for print and then  plot this with colour changed
+lx = (max(agents, key=operator.itemgetter(0)))
+plt.scatter(lx[0], lx[1], color='red')
+
+# smallest x value in blue, largest y in yellow and smallest y in green
+sx = (min(agents, key=operator.itemgetter(0)))
+plt.scatter(sx[0], sx[1], color='blue')
+ly= (max(agents, key=operator.itemgetter(1)))
+plt.scatter(ly[0], ly[1], color='yellow')
+sy= (min(agents, key=operator.itemgetter(1)))
+plt.scatter(sy[0], sy[1], color='green')
+plt.show()
