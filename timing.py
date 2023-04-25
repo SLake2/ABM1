@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Apr 23 22:04:36 2023
+Spyder Editor
 
-@author: Sian
+This is a temporary script file.
 """
 import random
 import math
@@ -15,12 +15,12 @@ start = time.perf_counter()
 
 # Nos. 2 and 3 of ABM1
 # Initialise variable x0
-x0 = 0
-print("x0", x0)
+#x0 = 0
+#print("x0", x0)
 
 # Initialise variable y0
-y0 = 0
-print("y0", y0)
+#y0 = 0
+#print("y0", y0)
 
 # ABM2: adding lists for agents
 
@@ -47,14 +47,14 @@ random.seed(0)
 
 # Changge from agent list from the x0,y0 to ranges
 
-# Number of agents is 10 - trialled 500, 1000, 4000...
+# Number of agents is 10 - trialled 500, 1000, 4000, 3...
 n_agents = 3
 
 # Initialise these agents
 agents = []
 for i in range(n_agents):
     agents.append([random.randint(0, 99), random.randint(0, 99)])
-print(agents)
+#print(agents)
     
 # Move agents
 for i in range(n_agents):
@@ -73,7 +73,7 @@ for i in range(n_agents):
         agents[i][1] = agents[i][1] + 1
     else:
         agents[i][1] = agents[i][1] - 1
-print(agents)
+#print(agents)
 
 
 # Same for Y values - try > instead of <
@@ -90,29 +90,29 @@ print()
 # note: deleted extra trials for abm2
 
 # Do the same for x1 and y1 variables
-x1 = 1
-print("x1", x1)
+#x1 = 1
+#print("x1", x1)
 
-y1 = 1
-print("y1", y1)
+#y1 = 1
+#print("y1", y1)
 
-rn = random.random()
+#rn = random.random()
 
-print("rn2", rn)
+#print("rn2", rn)
 
-if rn > 0.5:
-    x1 = x1 + 1
-else:
-    x1 - 1
+#if rn > 0.5:
+#    x1 = x1 + 1
+#else:
+#    x1 - 1
 
-print("x1", x1)
+#print("x1", x1)
 
-if rn < 0.5:
-   y1 = y1 + 1
-else:
-    y1 = y1 - 1
+#if rn < 0.5:
+#   y1 = y1 + 1
+#else:
+#    y1 = y1 - 1
 
-print("y1", y1)
+#print("y1", y1)
 
 # New space for next part of ABM
 print()
@@ -199,21 +199,21 @@ print()
 #plt.scatter(agents[0][0], agents[0][1], color='black')
 
 # Plotting ranged agents
-for i in range(n_agents):
-    plt.scatter(agents[i][0], agents[i][1], color='black')
+#for i in range(n_agents):
+#    plt.scatter(agents[i][0], agents[i][1], color='black')
 
 #lx = largest x value, use the code provided for print and then  plot this with colour changed
-lx = (max(agents, key=operator.itemgetter(0)))
-plt.scatter(lx[0], lx[1], color='red')
+#lx = (max(agents, key=operator.itemgetter(0)))
+#plt.scatter(lx[0], lx[1], color='red')
 
 # smallest x value in blue, largest y in yellow and smallest y in green
-sx = (min(agents, key=operator.itemgetter(0)))
-plt.scatter(sx[0], sx[1], color='blue')
-ly= (max(agents, key=operator.itemgetter(1)))
-plt.scatter(ly[0], ly[1], color='yellow')
-sy= (min(agents, key=operator.itemgetter(1)))
-plt.scatter(sy[0], sy[1], color='green')
-plt.show()
+#sx = (min(agents, key=operator.itemgetter(0)))
+#plt.scatter(sx[0], sx[1], color='blue')
+#ly= (max(agents, key=operator.itemgetter(1)))
+#plt.scatter(ly[0], ly[1], color='yellow')
+#sy= (min(agents, key=operator.itemgetter(1)))
+#plt.scatter(sy[0], sy[1], color='green')
+#plt.show()
 
 print()
 # ABM 3 - Changing distance and Max Distance calulations
@@ -223,7 +223,6 @@ print()
 def get_distance(x0, y0, x1, y1):
     """
    Calculate the Euclidean distance between (x0, y0) and (x1, y1).
-
    Parameters
    ----------
    x0 : Number
@@ -234,7 +233,6 @@ def get_distance(x0, y0, x1, y1):
        The x-coordinate of the second coordinate pair.
    y1 : Number
        The y-coordinate of the second coordinate pair.
-
    Returns
    -------
    distance : Number
@@ -260,37 +258,91 @@ print()
 #        print("max_distance", max_distance)
         
 # Also can be done by
-max_distance = 0
-for i in range(len(agents)):
-    a = agents[i]
-    for j in range(len(agents)):
-        b = agents[j]
-        distance = get_distance(a[0], a[1], b[0], b[1])
-        print("distance between", a, b, distance)
-        max_distance = max(max_distance, distance)
-        print("max_distance", max_distance)
+#max_distance = 0
+#for i in range(len(agents)):
+#    a = agents[i]
+#    for j in range(len(agents)):
+#        b = agents[j]
+#        distance = get_distance(a[0], a[1], b[0], b[1])
+#        print("distance between", a, b, distance)
+#        max_distance = max(max_distance, distance)
+#        print("max_distance", max_distance)
 
 print()
 
-
 # Get max distance of all
 def get_max_distance():
-     """ 
+    """ 
      Calulating maximum distance between all agents
      Parameters again x0, y0, x1, y1
      Returns max_distance: distance between all agents
      """
-     max_distance = 0
-     for i in range(len(agents)):
-         a = agents[i]
-         print("i", i, "j", j)
-         for j in range(i + l, len(agents)):
-             b = agents[j]
-             distance = get_distance(a[0], a[1], b[0], b[1])
-             #print("distance between", a, b, distance)
-             max_distance = max(max_distance, distance)
-             #print("max_distance", max_distance)
+    # Loop through and calculate distances
+    max_distance = 0
+    for i in range(len(agents)):
+        a = agents[i]
+        for j in range(i + 1, len(agents)):
+            b = agents[j]
+            print("i", i, "j", j)
+            distance = get_distance(a[0], a[1], b[0], b[1])
+            #print("distance between", a, b, distance☺)
+            max_distance = max(max_distance, distance)
+            #print("max_distance", max_distance)
     return max_distance
+
+ 
+    # Get min distance of all
+def get_min_distance():
+    min_distance = math.inf
+    for i in range(len(agents)):
+        a = agents[i]
+        for j in range(i + 1, len(agents)):
+            b = agents[j]
+            print("i", i, "j", j)
+            distance = get_distance(a[0], a[1], b[0], b[1])
+            min_distance = min(min_distance, distance)
+    return min_distance
+
+print("Max =", get_max_distance(), "Min", get_min_distance())
+
+print()
+# List to sort the times
+run_times = []
+n_agents_range = range(500, 5000, 500)
+for n_agents in n_agents_range:
+    
+    # Initialise agents
+    agents = []
+    for i in range(n_agents):
+        agents.append([random.randint(0, 99), random.randint(0, 99)])
+    #print(agents)
+    
+    # Print the maximum distance between all the agents
+    start = time.perf_counter()
+    print("Maximum distance between all the agents", get_max_distance())
+    end = time.perf_counter()
+    run_time = end - start
+    print("Time taken to calculate maximum distance", run_time)
+    run_times.append(run_time)
+
+    
+    # Can do this to print the minimum distance between all the agents
+#    start = time.perf_counter()
+#    print("Minimum distance between all the agents", get_min_distance())
+#    end = time.perf_counter()
+#    run_time = end - start
+#    print("Time taken to calculate minimum distance", run_time)
+#    run_times.append(run_time)
+    
+# Plot this on a graph
+plt.title("Time taken to calculate maximum distance for different numbers of agent")
+plt.xlabel("Number of agents")
+plt.ylabel("Time")
+j = 0
+for i in n_agents_range:
+    plt.scatter(i, run_times[j], color='black')
+    j = j + 1
+plt.show()
 
 print()
 end = time.perf_counter()
